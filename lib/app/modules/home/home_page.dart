@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:petvac/app/utils/routes.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
+
+  static const String route = '/home';
+
   const HomePage({Key key, this.title = "Home"}) : super(key: key);
 
   @override
@@ -15,18 +19,24 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(
         child: ListView(
          children: <Widget>[
+           // Icones do Menu (Drawer);
            _addDrawerItem(
              Icons.home,
             "home", 
-            null),
+            () => Navigator.pushReplacementNamed(context, Routes.home)
+            ),
+
             _addDrawerItem(
              Icons.mouse,
             "Tipos de Pet", 
-            null),
+            () => Navigator.pushReplacementNamed(context, Routes.petTipos)
+            ),
+
             _addDrawerItem(
              Icons.pets,
             "Pets", 
             null),
+
          ],
         ),
       ),
