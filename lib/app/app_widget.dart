@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:petvac/app/modules/home/home_module.dart';
+import 'package:petvac/app/modules/logon/logon_page.dart';
 
 class AppWidget extends StatelessWidget {
   @override
@@ -15,10 +16,27 @@ class AppWidget extends StatelessWidget {
         builder: (context, snapshot) {
 
           if (snapshot.connectionState == ConnectionState.active){
-            print("*** Estou conectado ao FireBase");
+
+            FirebaseUser user = snapshot.data;
+
+            if (user == null) {
+              // Fazer Logon
+              return LogonPage();
+            }
+
+            return HomeModule();
+
+          } else {
+            // Esperar Conexao
+            return Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+              );
+
           }
 
-          return HomeModule();
+          
         }
       ),
     );
