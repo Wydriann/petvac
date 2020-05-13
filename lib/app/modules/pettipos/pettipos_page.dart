@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petvac/app/utils/main_drawer.dart';
 
 class PetTiposPage extends StatefulWidget {
   final String title;
@@ -16,6 +17,7 @@ class _PetTiposPageState extends State<PetTiposPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MainDrawer(),
       appBar: AppBar(
         title: Text(widget.title),
       ),

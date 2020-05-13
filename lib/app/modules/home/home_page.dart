@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:petvac/app/utils/routes.dart';
+import 'package:petvac/app/utils/main_drawer.dart';
+
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -16,30 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-         children: <Widget>[
-           // Icones do Menu (Drawer);
-           _addDrawerItem(
-             Icons.home,
-            "home", 
-            () => Navigator.pushReplacementNamed(context, Routes.home)
-            ),
-
-            _addDrawerItem(
-             Icons.mouse,
-            "Tipos de Pet", 
-            () => Navigator.pushReplacementNamed(context, Routes.petTipos)
-            ),
-
-            _addDrawerItem(
-             Icons.pets,
-            "Pets", 
-            null),
-
-         ],
-        ),
-      ),
+      drawer: MainDrawer(),
       appBar: AppBar(
         title: Text(widget.title),
       ),
@@ -49,20 +27,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-  @override
-  Widget _addDrawerItem (_icon, _text, _onTap) {
-    return ListTile(
-      title: Row(
-        children: <Widget>[
-          Icon(_icon),
-          Padding(
-            padding: EdgeInsets.only(left: 8),
-            child: Text(_text),
-            ),
-        ],
-        ),
-        onTap: null,
-    );
-  }
 
