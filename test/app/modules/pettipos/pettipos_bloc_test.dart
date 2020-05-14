@@ -6,7 +6,7 @@ import 'package:petvac/app/modules/pettipos/pettipos_module.dart';
 
 void main() {
   initModule(PettiposModule());
-  PettiposBloc bloc;
+  PetTiposBloc _bloc;
 
   // setUp(() {
   //     bloc = PettiposModule.to.bloc<PettiposBloc>();

@@ -3,6 +3,7 @@ import 'package:petvac/app/app_bloc.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:petvac/app/app_widget.dart';
+import 'package:petvac/app/modules/pettipos/pettipos_repository.dart';
 
 class AppModule extends ModuleWidget {
   @override
@@ -12,7 +13,10 @@ class AppModule extends ModuleWidget {
       ];
 
   @override
-  List<Dependency> get dependencies => [];
+  List<Dependency> get dependencies => [
+    Dependency((i) => PettiposRepository()),
+
+  ];
 
   @override
   Widget get view => AppWidget();

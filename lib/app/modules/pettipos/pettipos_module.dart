@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class PettiposModule extends ModuleWidget {
   @override
   List<Bloc> get blocs => [
-        Bloc((i) => PettiposBloc()),
+        Bloc((i) => PetTiposBloc()),
       ];
 
   @override
